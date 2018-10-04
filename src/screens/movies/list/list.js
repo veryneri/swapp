@@ -3,21 +3,34 @@ import {
   FlatList,
   StyleSheet,
   Text,
-  View
+  TouchableOpacity
 } from 'react-native';
 import { connect } from 'react-redux';
 import { listMovies } from '../../../store/actions';
 
 class MovieList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.renderMovie = this.renderMovie.bind(this);
+  }
+
   componentDidMount() {
     this.props.listMovies();
   }
 
   renderMovie({ item: movie }) {
+    const { navigate } = this.props.navigation;
+    const {
+      imdbID,
+      Title
+    } = movie;
     return (
-      <View style={styles.movie}>
-        <Text>{movie.Title}</Text>
-      </View>
+      <TouchableOpacity
+        style={styles.movie}
+        onPress={() => navigate('MovieDetail', { imdbID })}
+      >
+        <Text>{Title}</Text>
+      </TouchableOpacity>
     );
   }
 
