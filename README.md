@@ -1,5 +1,4 @@
 # SWAPP
-===
 
 Simple [React Native](https://facebook.github.io/react-native/) application to display Star Wars Movies.
 
