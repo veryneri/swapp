@@ -36,8 +36,9 @@ class ProgressiveImage extends React.Component {
       ...props
     } = this.props;
 
+
     return (
-      <View style={styles.container}>
+      <View style={[{ borderRadius: style.borderRadius }, styles.container]}>
         <Animated.Image
           {...props}
           source={thumbnailSource}
