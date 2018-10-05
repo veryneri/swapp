@@ -5,7 +5,10 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { getMovieDetail } from '../../../store/actions';
-import { ProgressiveImage } from '../../../components';
+import {
+  InfoContainer,
+  ProgressiveImage
+} from '../../../components';
 
 class MovieDetail extends React.Component {
   componentDidMount() {
@@ -21,6 +24,7 @@ class MovieDetail extends React.Component {
     const {
       Poster,
       Released,
+      Runtime,
       Title,
     } = movieInfo;
     const content = loadingInfo
@@ -36,8 +40,18 @@ class MovieDetail extends React.Component {
             style={styles.image}
             resizeMode='cover'
           />
-          <Text style={styles.text}>{Title}</Text>
-          <Text style={styles.text}>{Released}</Text>
+          <InfoContainer
+            label='Title'
+            info={Title}
+          />
+          <InfoContainer
+            label='Released'
+            info={Released}
+          />
+          <InfoContainer
+            label='Runtime'
+            info={Runtime}
+          />
         </View>
       );
 
