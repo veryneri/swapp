@@ -9,7 +9,7 @@
     "lint": "eslint --ignore-path .gitignore .",
     "pretest": "npm run lint",
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "echo \"No tests\""
+    "test": "jest"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -36,7 +36,10 @@
     "react-test-renderer": "16.5.0"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "transform": {
+      "^.+\\.(js)$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
+    }
   },
   "pre-commit": [
     "lint"
