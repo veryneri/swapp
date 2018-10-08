@@ -16,18 +16,18 @@ export default (state = initalState, action) => {
     case GET_MOVIES:
       return {
         ...state,
-        loading: true
+        loadingInfo: true
       };
     case GET_MOVIES_SUCCESS:
       return {
         ...state,
-        loading: false,
+        loadingInfo: false,
         movies: action.payload.data.Search
       };
     case GET_MOVIES_FAIL:
       return {
         ...state,
-        loading: false,
+        loadingInfo: false,
         error: 'Error while fetching movies'
       };
     case GET_MOVIE_INFO:
@@ -45,7 +45,7 @@ export default (state = initalState, action) => {
       return {
         ...state,
         loadingInfo: false,
-        errorInfo: 'Error getting movie info'
+        error: 'Error getting movie info'
       };
     default:
       return state;
